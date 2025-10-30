@@ -37,8 +37,8 @@ RUN pip install --no-cache-dir \
 
 # Configure SSH for remote access
 RUN mkdir -p /var/run/sshd && \
-    echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config && \
-    sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
+    echo 'root:vessl' | chpasswd && \
+    sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 # Expose ports for Jupyter and SSH
 EXPOSE 8888 22
