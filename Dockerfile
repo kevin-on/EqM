@@ -33,7 +33,8 @@ RUN pip install --no-cache-dir \
     accelerate \
     torchdiffeq \
     wandb \
-    jupyterlab
+    jupyterlab \
+    matplotlib
 
 # Configure SSH for remote access
 RUN mkdir -p /var/run/sshd && \
